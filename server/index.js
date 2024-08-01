@@ -73,7 +73,7 @@ app.post("/upload", multer.single("imgfile"), (req, res) => {
 });
 // Get the main index html file
 app.get("/", (req, res) => {
-  res.sendFile(src + "App.js");
+  res.sendFile(src + "index.html");
 });
 
 if (process.env.NODE_ENV === "production") {
