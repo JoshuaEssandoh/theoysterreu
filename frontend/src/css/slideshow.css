@@ -1,0 +1,16 @@
+.slideshow-section {
+    background-color: lightpink;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 150px;
+}
+
+.owl-show {
+    height: 255px;
+    /*width: 5225px;*/
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+}

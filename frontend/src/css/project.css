@@ -1,0 +1,153 @@
+.project-section {
+    background-color: rgb(141, 2, 2);
+    display: flex;
+    height: 700px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: white;
+}
+
+.project-head {
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 800;
+    display: block;
+    
+    margin-top: 50px;
+    margin-left: 50px;
+    color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: white;
+}
+
+.project-sub-text {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 300;
+    color: white;
+    margin-left: 50px;
+}
+
+.project-left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-left-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.bottom-lft-section {
+    background-color: rgb(141, 2, 2);
+    flex: 1;
+}
+
+.pdf {
+    line-height: 50px;
+    height: 75px;
+    text-align: center;
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    margin-left: 50px;
+    margin-top: 75px;
+    padding-bottom: 25px;
+}
+
+.pdf-button {
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    transition: all 0.5s;
+    position: relative;
+    background-color: rgba(255,255,255,0.1);
+    border: none;
+}
+
+.pdf-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.01);
+    transition: all 0.3s;
+  }
+
+  .pdf-button:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+  }
+
+  .pdf-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.5);
+    transform: scale(1.2,1.2);
+  }
+
+  .pdf-button:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+  }
+
+.project-right-section {
+    flex: 1;
+}
+
+.oyster-pic {
+    width: 700px;
+    height: 700px;
+    margin-top: 0px;
+    margin-left: 70px;
+    border: none;
+    border-radius: 350px;
+}
+
+@media screen and (max-width: 940px) {
+    
+    .project-right-section {
+        flex: 0;
+        display: none;
+    }
+
+    .project-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    .project-head {
+        justify-content: center;
+    }
+
+    .project-left-section {
+        flex: 3;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+
+    
+}
