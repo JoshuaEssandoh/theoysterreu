@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Oyster = require("../models/OysModel");
 
-router.route("/postValues").post((req, res) => {
+router.route("http://localhost:8083/postValues").post((req, res) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const email = req.body.email;
