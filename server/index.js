@@ -14,8 +14,15 @@ const src = path.join(__dirname, "../frontend/src/");
 //used for google storage transfer
 app.use(express.static(src));
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("connected to DB successfully");
 
+    app.listen(port, () => {
+      console.log(`Server started on port ${port}`);
+    });
+  })
 app.use("/", require("./routes/oysRoute"))
 //--------------------------------------------------------------------------------
 
@@ -77,6 +84,3 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Start the server on port 8080 or as defined
-app.listen(process.env.PORT || port, () => {
-  console.log(`Server started on port ${port}`);
-});
