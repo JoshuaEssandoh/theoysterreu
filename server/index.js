@@ -10,7 +10,7 @@ const path = require("path");
 require("dotenv").config();
 const { Storage } = require("@google-cloud/storage");
 const Multer = require("multer");
-const src = path.join(__dirname, "../frontend/src/");
+const src = path.join(__dirname, "../frontend/build/");
 //used for google storage transfer
 app.use(express.static(src));
 
