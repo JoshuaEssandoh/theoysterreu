@@ -5,12 +5,13 @@ const cors = require('cors');
 const mongoose = require("mongoose");
 app.use(cors());
 app.use(express.json());
-const port = 8083;
+const port = process.env.PORT || 8083;
 const path = require("path");
 require("dotenv").config();
 const { Storage } = require("@google-cloud/storage");
 const Multer = require("multer");
 const src = path.join(__dirname, "../frontend/build");
+const router = express.Router();
 //used for google storage transfer
 app.use(express.static(src));
 
@@ -23,7 +24,35 @@ mongoose
       console.log(`Server started on port ${port}`);
     });
   })
-app.use("/", require("./routes/oysRoute"))
+
+  const oysterSchema = {
+    firstName: String,
+    lastName: String,
+    email: String,
+    pwd: String
+}
+
+const Oyster = mongoose.model("oysters", oysterSchema);
+
+module.exports = Oyster;
+
+router.route("http://localhost:8083/postValues").post((req, res) => {
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+  const email = req.body.email;
+  const pwd = req.body.pwd;
+  //Creates a new note model
+  const newOyster = new Oyster({
+      firstName,
+      lastName,
+      email,
+      pwd
+  });
+
+  newOyster.save();
+})
+
+module.exports = router;
 //--------------------------------------------------------------------------------
 
 
