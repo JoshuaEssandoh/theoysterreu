@@ -46,7 +46,7 @@ function Upload() {
         }
         
         //calls the axios API
-        axios.post('http://localhost:8083/postValues', NewUser)   
+        axios.post('https://theoysterreu-api.onrender.com/', NewUser)   
         .then(res => console.log("Registered Successfully!"))
         .catch(err => console.log(err));
     }
