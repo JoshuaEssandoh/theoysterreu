@@ -36,7 +36,7 @@ const Oyster = mongoose.model("oysters", oysterSchema);
 
 module.exports = Oyster;
 
-router.route("http://localhost:8083/postValues").post((req, res) => {
+router.route("http://localhost:10000/postValues").post((req, res) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const email = req.body.email;
