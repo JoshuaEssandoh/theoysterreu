@@ -10,7 +10,7 @@ const path = require("path");
 require("dotenv").config();
 const { Storage } = require("@google-cloud/storage");
 const Multer = require("multer");
-const src = path.join(__dirname, "../frontend/build/");
+const src = path.join(__dirname, "../frontend/build");
 //used for google storage transfer
 app.use(express.static(src));
 
@@ -72,12 +72,12 @@ app.post("/upload", multer.single("imgfile"), (req, res) => {
   }
 });
 // Get the main index html file
-app.get("/", (req, res) => {
-  res.sendFile(src + "index.html");
-});
+//app.get("/", (req, res) => {
+ // res.sendFile(src + "index.html");
+//});
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("frontend/build"));
   app.get("*",(req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
   } )
